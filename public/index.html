@@ -209,10 +209,6 @@
       white-space: pre-wrap;
     }
 
-
-
-
-
     html.dark {
       height: 100%;
       background: #3c3c3c;
@@ -257,8 +253,6 @@
       background-color: #863a3a;
     }
 
-
-
     html.dark .announcement {
       background: #98986e;
       color: #333;
@@ -280,6 +274,10 @@
 
     html.dark #powers::placeholder {
       color: #555;
+    }
+
+    html.dark ::-moz-selection { /* Code for Firefox */
+      background-color: #000;
     }
 
     html.dark ::selection {
@@ -538,6 +536,7 @@
 
         updateText() {
           if (app.myText === 'POWER OVERWHELMING') {
+            app.myText = ''
             if (app.powers)
               return
 
@@ -796,6 +795,10 @@
     }
 
     function viewModelForModel(line) {
+     if (line.text.includes('POWER O')
+        line.text = '-censored-'
+      }
+
       return {
         name: line.name,
         text: normalizeText(line.text),
